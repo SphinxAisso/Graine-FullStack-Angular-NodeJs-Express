@@ -1,0 +1,41 @@
+@import '../../../../style/vars';
+@import '../../../../style/typo';
+@import '../../../../style/mixins';
+@import '../../../../style/layout';
+@import '../../../../style/buttons';
+
+.login-block {
+    display:block;
+    width:600px;
+    height:400px;
+    background-color: $color-white;
+    padding:20px;
+    @extend .shadowed;
+}
+
+.form-group {
+    display:block;
+    padding: 10px;
+
+    & label {
+        @extend %typo-principal-normal-normal;
+    }
+}
+
+.form-label {
+    width: 150px;
+    display: inline-block;
+}
+
+.alert-danger {
+    color: $color-secondaire;
+}
+
+.help-block {
+    border: 1px solid $color-secondaire;
+    @extend .normal-text;
+    color: $color-secondaire;
+    border-radius: 2px;
+    margin:5px;
+    padding: 5px;
+}

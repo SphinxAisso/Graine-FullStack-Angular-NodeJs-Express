@@ -1,0 +1,72 @@
+
+//Tooltips
+$tooltip-height: 39px;
+$tooltip-width:$tooltip-height;
+$tooltip-dimension: 39px;
+
+//Couleurs principales
+$color-principal: #007b63;
+$color-secondaire: #b33d28;
+$color-tertiaire: #1f90e1;
+
+//Variations sur les couleurs principales
+$color-principal-clair: #00b688;
+$color-principal-hover: #009e71;
+$color-principal-focus: darken($color-principal-hover, 10%);
+$color-principal-active: #00572f;
+
+$color-tertiaire-hover: darken($color-tertiaire, 10%);
+
+//Autres couleurs
+
+$color-orange: #D03200;
+$color-white: #ffffff;
+$color-desert-storm: #f1f1f0;
+$color-seashell: #F1F1F1;
+$color-mystic: #e0e5ec;
+$color-mercury: #E6E6E6;
+
+$color-mishka: #d6dae1;
+$color-gallery: #eeeeee;
+$color-gallery-fonce: #EFEFEF;
+$color-silver:#CCCCCC;
+
+$color-light-blue: #DAE7E9;
+
+$color-gray: #8c8c8c;
+$color-gray-focus: darken(#8c8c8c, 10%);
+$color-black: #333333;
+
+//Page
+$color-bg-page: $color-mystic;
+
+//Header
+$color-bg-header: $color-white;
+$color-structure-holder-shadow: $color-seashell;
+
+//Menu
+$color-menu-border: $color-white;
+$color-menu-text: $color-white;
+
+//texte
+$color-clear-text: $color-white;
+
+//Blocks
+$color-block-content: $color-white;
+$color-block-content-active: $color-light-blue;
+$color-block-detail-content: $color-desert-storm;
+
+//Boutons : fond ou texte selon outline ou non
+$color-btn: $color-principal-clair;
+$color-btn-hover: $color-principal-hover;
+$color-btn-focus: $color-principal-focus;
+
+$color-btn-disabled: $color-gray;
+$color-btn-disabled-focus: $color-gray-focus;
+
+$color-btn-active: $color-tertiaire;
+$color-btn-active-hover: $color-tertiaire-hover;
+
+$color-btn-text:$color-white;
+$color-btn-text-active:$color-black;
+

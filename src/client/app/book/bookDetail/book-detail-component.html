@@ -1,0 +1,15 @@
+<h2>Détails du livre sélectionné</h2>
+
+<div class="toggle-btn" (click)="toggleUpdateMode()"><span class="fa fa-edit"></span></div>
+<book-editor *ngIf="update" (onClose)="toggleUpdateMode()" [book]="book" (onBookUpdated)="bookUpdated($event)"></book-editor>
+
+<div>
+    <strong>Identifiant :</strong> {{book._id}}
+    <br>
+    <strong>Titre :</strong> {{book.title}}
+    <br>
+    <strong>Auteur :</strong> {{book.author}}
+    <br>
+    <strong>Résumé :</strong>
+    {{book.resume}}
+</div>

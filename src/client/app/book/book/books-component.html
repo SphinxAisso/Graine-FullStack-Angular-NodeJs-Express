@@ -1,0 +1,6 @@
+<h1>{{title}}</h1>
+
+<div>
+    <book-list class="shadowed-block lateral-block" [books]="books" [selection]="selection" (onSelect)="selectBook($event)" (onUpdate)="getBooks()"></book-list>
+    <book-detail class="shadowed-block content-block" [book]="selection" (onUpdate)="getBooks()" *ngIf="selection"></book-detail>
+</div>

@@ -1,0 +1,35 @@
+<div class="full-page-dark fade-in backdrop" (click)="cancel()"></div>
+
+<div class="main-block popin">
+    <h2><span *ngIf="!updateMode">Nouveau livre</span><span *ngIf="updateMode">Modifier le livre</span></h2>
+
+    <div class="close-btn" (click)="cancel()"><span class="fa fa-times"></span></div>
+
+    <form name="form" (ngSubmit)="f.form.valid && manageBook()" #f="ngForm" novalidate>
+
+        <div class="form-group">
+            <label class="form-label" [htmlFor]="title">Titre :</label>
+            <input type="text" class="form-control" [ngClass]="{ 'has-error': f.submitted && !title.valid }" name="title" [(ngModel)]="_book.title" #title="ngModel" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" [htmlFor]="password">Auteur :</label>
+            <input type="text" class="form-control" [ngClass]="{ 'has-error': f.submitted && !author.valid }" name="author" [(ngModel)]="_book.author" #author="ngModel" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" [htmlFor]="resume">Résumé :</label>
+            <textarea cols="35" rows="4" class="form-control" [ngClass]="{ 'has-error': f.submitted && !resume.valid }" name="resume" [(ngModel)]="_book.resume" #resume="ngModel" required ></textarea>
+        </div>
+
+        <div *ngIf="f.submitted && !f.valid" class="help-block">Veuillez renseigner les champs en rouge</div>
+
+        <div class="form-group">
+            <button *ngIf="!updateMode" [disabled]="loading" class="bouton-arrondi-large fright">Créer</button>
+            <button *ngIf="updateMode" [disabled]="loading" class="bouton-arrondi-large fright">Mettre à jour</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+        <div *ngIf="error" class="alert-danger">{{error}}</div>
+    </form>
+</div>
+

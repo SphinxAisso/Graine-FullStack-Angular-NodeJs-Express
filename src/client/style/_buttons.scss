@@ -1,0 +1,377 @@
+//Effets et alignements de base sur un bouton
+%basic-bouton {
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    @include transition(all .2s ease);
+
+    &.disabled {
+        @include transition(all .2s ease);
+        cursor: initial;
+        pointer-events: none;
+
+        &:hover {
+            
+        }
+    }
+
+    &:hover {
+        @include transition(all .2s ease);
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    &:focus {
+        @include transition(all .2s ease);
+        outline: thin dotted;
+    }
+}
+
+//Bouton de base : plein
+%bouton-normal {
+    @extend %basic-bouton;
+    color: $color-btn-text;
+    background-color: $color-btn;
+    border: 1px solid $color-btn;
+
+    &.disabled {
+        background-color: $color-btn-disabled;
+        border: 1px solid $color-btn-disabled;
+
+        &:focus {
+            border: 1px solid $color-btn-disabled-focus;
+            background-color: $color-btn-disabled-focus;
+        }
+    }
+
+    &.active {
+        color: $color-btn-text-active;
+        border: 1px solid $color-btn-active;
+        background-color: $color-btn-active;
+
+        &:hover, &:focus {
+            color: $color-btn-text-active;
+            border: 1px solid $color-btn-active-hover;
+            background-color: $color-btn-active-hover;
+        }
+    }
+
+    &:hover {
+        background-color: $color-btn-hover;
+        border: 1px solid $color-btn-hover;
+        color: $color-btn-text;
+    }
+
+    &:focus {
+        background-color: $color-btn-focus;
+        border: 1px solid $color-btn-focus;
+        color: $color-btn-text;
+        outline: thin dotted;
+    }
+}
+
+//Bouton creux : background se remplit en hover, active, focus
+%bouton-outline {
+    @extend %bouton-normal;
+    background-color: $color-btn-text;
+    color: $color-btn;
+
+    &.disabled {
+        background-color: $color-btn-text;
+        color: $color-btn-disabled;
+
+        &:focus {
+            background-color: $color-btn-text;
+            color: $color-btn-disabled-focus;
+        }
+    }
+
+    &.active {
+        border: 1px solid $color-btn-hover;
+        background-color: $color-btn-hover;
+        color: $color-btn-text;
+
+        &:hover, &:focus {
+            border: 1px solid $color-btn-focus;
+            background-color: $color-btn-focus;
+            color: $color-btn-text;
+        }
+    }
+
+    &:hover {
+        border: 1px solid $color-btn-hover;
+        background-color: $color-btn-hover;
+        color: $color-btn-text;
+    }
+
+    &:focus {
+        //background-color: $color-btn-text;
+        //color: $color-btn-focus;
+        background-color: $color-btn-focus;
+        color: $color-btn-text;
+    }
+}
+
+%bouton-shadowed {
+    @extend %bouton-outline;
+
+    border: none;
+    @include box-shadow(0 1.5px 2px 0 rgba(0, 0, 0, 0.66));
+
+    &.disabled {
+        border: none;
+
+        &:focus {
+            border: none;
+            background-color: $color-btn-text;
+            color: $color-btn-disabled-focus;
+        }
+    }
+
+    &.active {
+        background-color: $color-btn-text;
+        color: $color-btn;
+        border: none;
+        @include box-shadow(0 1.5px 2px 0 rgba(0, 0, 0, 0.66));
+
+        &:hover, &:focus {
+            border: none;
+            background-color: $color-btn-text;
+            color: $color-btn-focus;
+            @include box-shadow(0 2.5px 4px 0 rgba(0, 0, 0, 0.66));
+        }
+    }
+
+    &:hover {
+        background-color: $color-btn-text;
+        color: $color-btn-hover;
+        border: none;
+        @include box-shadow(0 2.5px 4px 0 rgba(0, 0, 0, 0.66));
+    }
+
+    &:focus {
+        border: none;
+        background-color: $color-btn-text;
+        color: $color-btn-focus;
+        outline: none;
+        @include box-shadow(0 2.5px 4px 0 rgba(0, 0, 0, 0.66));
+    }
+}
+
+%bouton-transparent {
+    @extend %basic-bouton;
+
+    background-color: transparent;
+    border: none;
+    color: $color-btn;
+
+    &.disabled {
+        border: none;
+        color: $color-btn-disabled;
+
+        &:focus {
+            border: none;
+            background-color: transparent;
+        }
+    }
+
+    &.active {
+        border: none;
+        background-color: transparent;
+        color: $color-btn;
+
+        &:hover, &:focus {
+            border: none;
+            background-color: transparent;
+            color: $color-btn-focus;
+        }
+    }
+
+    &:hover {
+        border: none;
+        background-color: transparent;
+        color: $color-btn-hover;
+    }
+
+    &:focus {
+        border: none;
+        background-color: transparent;
+        color: $color-btn-focus;
+    }
+}
+
+%bouton-transparent-blanc {
+    @extend %bouton-transparent;
+    color: $color-white;
+
+    &:hover, &:focus {
+        color: $color-black;
+    }
+
+}
+
+%button-arrondi {
+    border-radius: 20px;
+    padding: 2px 10px;
+    &:focus {
+        outline: none;
+    }
+
+    &.noleft {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+
+    &.noright {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+%button-rond {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    margin: 0 5px; // ??
+    &:focus {
+        outline: none;
+    }
+}
+
+%bouton-carre {
+    //width: 34px;
+    //height: 34px;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    font-size: 1rem;
+    //font-size: 0.91rem;
+    //line-height: 34px;
+}
+
+%bouton-carre-large {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    font-size: 0.91rem;
+    line-height: 45px;
+}
+
+%bouton-carre-small {
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    font-size: 0.91rem;
+    //line-height: 28px;
+}
+
+%bouton-carre-mini {
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.4rem;
+    padding: 0;
+    line-height: 16px;
+}
+
+%bouton-rond {
+    @extend .bouton-outline;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 36px;
+}
+
+// Définitions de boutons
+.bouton-block {
+    @extend %bouton-normal;
+    @extend %typo-principal-medium-small-normal;
+
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &:focus, &.active:focus {
+        outline: none;
+    }
+
+    span {
+        @include center(absolute);
+    }
+}
+
+.bouton-outline {
+    @extend %bouton-outline;
+}
+
+.bouton-arrondi {
+    @extend %bouton-normal;
+    @extend %button-arrondi;
+    @extend %typo-principal-small-normal;
+}
+
+.bouton-arrondi-large {
+    @extend %bouton-normal;
+    @extend %button-arrondi;
+    @extend %typo-principal-small-normal;
+    line-height: 28px;
+}
+
+.bouton-outline-arrondi-large {
+    @extend %bouton-outline;
+    @extend %button-arrondi;
+    @extend %typo-principal-small-normal;
+    line-height: 28px;
+}
+
+.bouton-outline-arrondi {
+    @extend %bouton-outline;
+    @extend %button-arrondi;
+    @extend %typo-principal-small-normal;
+}
+
+.bouton-link {
+    @extend %bouton-shadowed;
+    @extend %button-arrondi;
+    @extend %typo-principal-small-normal;
+}
+
+.bouton-carre {
+    @extend %bouton-normal;
+    @extend %bouton-carre;
+}
+
+.bouton-carre-large {
+    @extend %bouton-normal;
+    @extend %bouton-carre-large;
+}
+
+.bouton-carre-small {
+    @extend %bouton-normal;
+    @extend %bouton-carre-small;
+}
+
+.bouton-carre-mini {
+    @extend %bouton-normal;
+    @extend %bouton-carre-mini;
+}
+
+.bouton-transparent {
+    @extend %bouton-transparent;
+    @extend %typo-principal-small-normal;
+}
+
+.bouton-transparent-blanc {
+    @extend %bouton-transparent-blanc;
+    @extend %typo-principal-medium-normal;
+}
+
+.bouton-rond {
+    @extend %bouton-rond;
+}

@@ -1,0 +1,10 @@
+<h2>Livres disponibles</h2>
+
+<button class="newbook-btn" (click)="toggle()"><span class="fa fa-plus"></span></button>
+<book-editor *ngIf="showBookForm" (onClose)="toggle()" (onBookUpdated)="bookUpdated($event)"></book-editor>
+
+<ul class="books-list">
+    <li class="book-item" [ngClass]="{'active': selection === item}" *ngFor="let item of books" (click)="select(item)">
+        {{item.title}}
+    </li>
+</ul>

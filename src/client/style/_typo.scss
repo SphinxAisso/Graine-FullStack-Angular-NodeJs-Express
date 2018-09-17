@@ -1,0 +1,178 @@
+//Familles de police
+$font-primary: 'Roboto';
+$font-secondary: 'Arial';
+$font-icon: 'FontAwesome';
+
+//Tailles de police
+$font-size-mini: 0.688rem;
+$font-size-small: 0.75rem;
+$font-size-medium-small-small: 0.85rem;
+$font-size-medium-small: 0.875rem;
+$font-size-normal: 1rem;
+$font-size-medium: 1.125rem;
+$font-size-large: 1.5rem;
+$font-size-xl: 2rem;
+
+//Graisses de police
+$font-weight-thin: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+//Styles de police
+$font-style-normal: normal;
+$font-style-italic: italic;
+
+@mixin typo($family: $font-primary, $size: $font-size-normal, $weight: $font-weight-normal, $style: $font-style-normal) {
+    font-family: $family;
+    font-size: $size;
+    font-style: $style;
+    font-weight: $weight;
+}
+
+//Polices fines
+%typo-principal-small-thin {
+    @include typo($font-primary, $font-size-small, $font-weight-thin);
+}
+
+%typo-principal-large-thin {
+    @include typo($font-primary, $font-size-large, $font-weight-thin);
+}
+
+//Polices normales
+%typo-secondaire-mini-normal {
+    @include typo($font-secondary, $font-size-mini);
+}
+
+%typo-principal-small-normal {
+    @include typo($font-primary, $font-size-small);
+}
+
+%typo-secondaire-small-normal {
+    @include typo($font-secondary, $font-size-small);
+}
+
+%typo-principal-medium-small-normal {
+    @include typo($font-primary, $font-size-medium-small);
+}
+
+%typo-secondaire-medium-small-normal {
+    @include typo($font-secondary, $font-size-medium-small);
+}
+
+%typo-principal-normal-normal {
+    @include typo($font-primary, $font-size-normal);
+}
+
+%typo-secondaire-normal-normal {
+    @include typo($font-secondary, $font-size-normal);
+}
+
+%typo-principal-medium-normal {
+    @include typo($font-primary, $font-size-medium);
+}
+
+%typo-principal-large-normal {
+    @include typo($font-primary, $font-size-large);
+}
+
+%typo-principal-xl-normal {
+    @include typo($font-primary, $font-size-xl);
+}
+
+//Polices medium
+%typo-principal-medium-small-medium {
+    @include typo($font-primary, $font-size-medium-small, $font-weight-medium);
+}
+
+//Polices bold
+%typo-secondaire-mini-bold {
+    @include typo($font-secondary, $font-size-mini, $font-weight-bold);
+}
+
+%typo-principal-small-bold {
+    @include typo($font-primary, $font-size-small, $font-weight-bold);
+}
+
+%typo-secondaire-small-bold {
+    @include typo($font-secondary, $font-size-small, $font-weight-bold);
+}
+
+%typo-secondaire-medium-small-bold {
+    @include typo($font-secondary, $font-size-medium-small, $font-weight-bold);
+}
+
+%typo-principal-medium-small-bold {
+    @include typo($font-primary, $font-size-medium-small, $font-weight-bold);
+}
+
+%typo-principal-normal-bold {
+    @include typo($font-primary, $font-size-normal, $font-weight-bold);
+}
+
+%typo-principal-medium-bold {
+    @include typo($font-primary, $font-size-medium, $font-weight-bold);
+}
+
+%typo-secondaire-medium-bold {
+    @include typo($font-secondary, $font-size-medium, $font-weight-bold);
+}
+
+h1, .h1 {
+    @extend %typo-principal-large-thin;
+    display: inline-block;
+    color: $color-principal;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+h2, .h2 {
+    @extend %typo-principal-medium-normal;
+    display: inline-block;
+    color: $color-principal;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h3, .h3 {
+    @extend %typo-principal-normal-bold;
+    display: inline-block;
+    color: $color-principal;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+h4, .h4 {
+    @extend %typo-principal-small-bold;
+    display: inline-block;
+    color: $color-principal;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.navigable {
+    cursor: pointer;
+
+    &:hover, &:focus {
+        text-decoration: underline;
+        outline: none;
+    }
+}
+
+.text-ellipse {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.normal-text {
+    @extend %typo-secondaire-small-normal;
+}
+
+.bold {
+    font-weight: $font-weight-bold;
+}
+
+.font-principal {
+    font-family: $font-primary;
+}

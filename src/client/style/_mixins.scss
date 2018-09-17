@@ -1,0 +1,71 @@
+@mixin box-shadow ($string) {
+    -webkit-box-shadow: $string;
+    -moz-box-shadow:    $string;
+    box-shadow:         $string;
+}
+
+@mixin translate($x, $y) {
+    -webkit-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    transform: translate($x, $y);
+}
+
+@mixin translateX($x) {
+    -webkit-transform: translateX($x);
+    -ms-transform: translateX($x);
+    transform: translateX($x);
+}
+
+@mixin translateY($y) {
+    -webkit-transform: translateY($y);
+    -ms-transform: translateY($y);
+    transform: translateY($y);
+}
+
+@mixin gpu-acceleration {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+@mixin center($position: relative) {
+    position: $position;
+    top: 50%;
+    left: 50%;
+   @include translate(-50%, -50%);
+}
+
+@mixin vertical-align($position: relative) {
+    position: $position;
+    top: 50%;
+    @include translateY(-50%);
+}
+
+@mixin transition($value) {
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -o-transition: $value;
+    transition: $value;
+}
+
+@mixin border-radius($value) {
+    -webkit-border-radius: $value;
+    -moz-border-radius: $value;
+    border-radius: $value;
+}
+
+
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}

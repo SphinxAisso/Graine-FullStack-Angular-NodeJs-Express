@@ -1,0 +1,283 @@
+
+.fright {
+    float: right;
+}
+
+.fleft {
+    float: left;
+}
+
+//Alignements
+.aleft {
+    text-align: left;
+}
+
+.aright {
+    text-align: right;
+}
+
+.acenter {
+    text-align: center;
+}
+
+.atop {
+    vertical-align: top;
+}
+
+.amiddle {
+    vertical-align: middle;
+}
+
+.abottom {
+    vertical-align: bottom;
+}
+
+.abseline {
+    vertical-align:baseline;
+}
+
+//Alignements avec Media
+.acenter-sm {
+    @media screen and (min-width: 769px) and (max-width: 992px) {
+        text-align: center;
+    }
+}
+
+.aleft-sm {
+    @media screen and (min-width: 769px) and (max-width: 992px) {
+        text-align: left;
+    }
+}
+
+//Dispositions
+.dblock {
+    display: block;
+}
+
+.dinblock {
+    display: inline-block;
+}
+
+.dblock-sm {
+    @media screen and (min-width: 769px) and (max-width: 992px) {
+        display: block;
+    }
+}
+
+.prelative {
+    position: relative;
+}
+
+.prelative-sm {
+    @media screen and (min-width: 769px) and (max-width: 992px) {
+        position: relative;
+    }
+}
+
+.clearfix {
+    //@include clearfix;
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+//Dispositions avec media
+.inblock-sm {
+    @media screen and (min-width: 769px) and (max-width: 992px) {
+        display: inline-block;
+    }
+}
+
+.page-border-left {
+    margin-left: -25px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.splash {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    @include translate(-50%, -50%);
+}
+
+.bottom-right {
+    position: absolute;
+    display: block;
+    bottom:0;
+    right:0;
+}
+
+.vertical-align-translate {
+    @include vertical-align(absolute);
+}
+
+//Dimensions
+.hauto {
+    height: auto;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.w15 {
+    width: 15px;
+}
+
+.p20-lateral {
+    padding: 0 20px;
+}
+
+.p10-lateral {
+    padding: 0 10px;
+}
+
+.p5-lateral {
+    padding: 0 5px;
+}
+
+.pb10 {
+    padding-bottom: 10px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.pl10 {
+    padding-left:10px;
+}
+
+.ml10 {
+    margin-left:10px;
+}
+
+//Couleurs
+.bg-transparent {
+    background-color: transparent;
+}
+
+//Effets
+.transition-2 {
+    @include transition(all .2s ease);
+}
+
+.delayed-35 {
+    -webkit-animation-delay: .35s;
+    animation-delay: .35s;
+}
+
+.shadowed {
+    @include box-shadow(0 1px 2px rgba(0, 0, 0, .8));
+    transition: all .5s ease;
+}
+
+.dark-shadowed {
+    @include box-shadow(0 1px 20px rgba(0, 0, 0, .8));
+    transition: all .5s ease;
+}
+
+.light-shadowed {
+    @include box-shadow(0 1.5px 2px 0 rgba(0, 0, 0, 0.3));
+}
+
+%full-page {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+}
+
+.full-page-dark {
+    @extend %full-page;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.full-page-transparent {
+    @extend %full-page;
+    background-color: transparent;
+}
+
+//Classes de la directive collapse/expand
+.block-collapse {
+    &.in {
+        display: block;
+    }
+}
+
+.block-collapsing {
+}
+
+.fade-in {
+    animation: .5s fadeIn;
+}
+.fade-out {
+    animation: .2s fadeOut;
+}
+
+.fade-out.ng-enter,
+.fade-out.ng-leave-active {
+    @include transition(all .5s ease);
+    opacity: 1;
+}
+
+.fade-out.ng-enter-active,
+.fade-out.ng-leave {
+    opacity: 0;
+}
+
+
+.fade-in-up {
+//.fade-in-up.ng-enter {
+    -webkit-animation: .3s fadeInUp;
+    animation: .3s fadeInUp;
+}
+
+.fade-in-left {
+    -webkit-animation: .3s fadeInLeft;
+    animation: .3s fadeInLeft;
+}
+
+.fade-in-right {
+    -webkit-animation: .3s fadeInRight;
+    animation: .3s fadeInRight;
+}
+.fade-out-right {
+    -webkit-animation: .3s fadeOutRight;
+    animation: .3s fadeOutRight;
+}
+
+.fade-in-down {
+    animation: .3s fadeInDown;
+}
+
+
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.dispnone {
+    display:none;
+}
